@@ -2,6 +2,7 @@ import React from 'react';
 
 const Mapa = () => {
 return (
+	<section>
 	<div
 	style={{
 		display: 'flex',
@@ -12,7 +13,9 @@ return (
 	>
 	<h1>Mapa.</h1>
 	</div>
+	</section>
 );
+
 };
 
 export default Mapa;

@@ -11,9 +11,9 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path='/' exact component={Mapa} />   
-        <Route path='/Equipe' exact component={Equipe} />     
-        <Route path='/Amostra' exact component={Amostra} />  
+        <Route path='/Mapa' element={<Mapa/>} />   
+        <Route path='/Equipe' element={<Equipe/>}/>     
+        <Route path='/Amostra' element={<Amostra/>} />  
       </Routes>
     </Router>
   );
