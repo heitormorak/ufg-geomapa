@@ -1,7 +1,7 @@
 # ufg-geomapa
 
 ## frontend
-yarn install
-yarn run dev
+```yarn install```
+```yarn run dev```
 
 ##backend
