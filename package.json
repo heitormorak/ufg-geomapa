@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "deck.gl": "^8.8.23",
+    "reactstrap": "^9.1.5"
+  }
+}
