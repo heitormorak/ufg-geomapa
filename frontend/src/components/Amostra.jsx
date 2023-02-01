@@ -16,7 +16,11 @@ import {
 import { TreeSelect, Tooltip, Upload, Alert, Button, Select, Table, Tag, DatePicker, Spin, Form, Switch, Radio, Skeleton } from 'antd';
 
 
-const styleLabel = { fontWeight: "600",  display: 'contents' }
+const styleLabel = { fontWeight: "bold",  display: 'contents' }
+const styleInput = { margin: '10px 100px 10px 10px' }
+const styleFormGroup = { display: 'contents' }
+
+
 
 const Amostra = () => {
 return (
@@ -35,22 +39,21 @@ return (
 			<Row>
 				<Col style={{ display: 'flex'}}>
 					<FormGroup>
+						
 						<Label style={styleLabel}>Número do Relatório</Label>
-						<Input style={{ margin: '10px'
-								}}>aaa</Input>
-
+						<Input style={styleInput}>aaa</Input>						
+						
 						<Label style={styleLabel}>Número do Furo</Label>
-						<Input>aaa</Input>
-
+						<Input style={styleInput}>aaa</Input>
+						
 						<Label  style={styleLabel}>Comprimento do revestimento</Label>
-						<Input>aaa</Input>
-
+						<Input style={styleInput}>aaa</Input>
+						
 						<Label  style={styleLabel}>Limite de Sondagem</Label>
-						<Input>aaa</Input>
-
+						<Input style={styleInput}>aaa</Input>
+						
 						<Label  style={styleLabel}>Data da Sondagem</Label>
-						<Input>aaa</Input>
-
+						<Input style={styleInput}>aaa</Input>
 						<Label  style={styleLabel}>Profundidade do Fechamento</Label>
 						<Input>aaa</Input>
 
