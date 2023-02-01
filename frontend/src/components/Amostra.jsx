@@ -1,33 +1,48 @@
 import React from 'react';
 import {
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
     Row,
     Col,
     Label,
     FormGroup,
-    Collapse,
-    FormFeedback,
-    Modal,
     Input,
     Button as ButtonCartao
 } from "reactstrap";
 import { TreeSelect, Tooltip, Upload, Alert, Button, Select, Table, Tag, DatePicker, Spin, Form, Switch, Radio, Skeleton } from 'antd';
 
 
-const styleLabel = { fontWeight: "bold",  display: 'contents' }
-const styleInput = { margin: '10px 100px 10px 10px' }
+const styleLabel = { fontWeight: "bold",  display: 'contents' , backgroundColor: 'blue'}
+const styleInput = { margin: '20px 100px 20px 10px' }
 const styleFormGroup = { display: 'contents' }
 
 
 
 const Amostra = () => {
+
+return (
+	<div style={{backgroundColor: 'red', display:'flex', justifyContent:'center' ,width: '100%', flexWrap: 'wrap'}}>
+		<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
+			<Label >Número do Relatório</Label>
+			<Input style={{backgroundColor: 'black'}}>aaa</Input>	
+		</div>
+		<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
+			<Label >Número do Furo</Label>
+			<Input style={{backgroundColor: 'black'}}>aaa</Input>	
+		</div>
+		<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
+			<Label >Comprimento do revestimento</Label>
+			<Input style={{backgroundColor: 'black'}}>aaa</Input>	
+		</div>
+		
+
+
+	
+	</div>
+)
+
 return (
 	
 	<div>
 		<>
-
 		<Form style={{  backgroundColor: 'blue',
                             width: '100%',
                             height: '100%',
@@ -35,20 +50,33 @@ return (
                             flexDirection: 'column',                                                        
                             padding: '10px',
 							paddingTop: '40px',
-							borderRadius: '15px' }}>
+							borderRadius: '15px',
+							justifyContent: 'center' }}>
 			<Row>
-				<Col style={{ display: 'flex'}}>
-					<FormGroup>
-						
+				<Col style={{ display: 'flex', backgroundColor: 'red', width:'35%'}}>
+					<FormGroup style={{ display: 'flex'}}>						
 						<Label style={styleLabel}>Número do Relatório</Label>
-						<Input style={styleInput}>aaa</Input>						
-						
+						<Input style={styleInput}>aaa</Input>	
+
 						<Label style={styleLabel}>Número do Furo</Label>
 						<Input style={styleInput}>aaa</Input>
+					</FormGroup>
+				</Col>	
+
+				<Col style={{ display: 'flex', backgroundColor: 'red', width:'35%'}}>
+					<FormGroup>
+						
 						
 						<Label  style={styleLabel}>Comprimento do revestimento</Label>
 						<Input style={styleInput}>aaa</Input>
-						
+					</FormGroup>						
+				</Col>
+			</Row>	
+
+			<Row>
+				<Col>
+					<FormGroup>
+				
 						<Label  style={styleLabel}>Limite de Sondagem</Label>
 						<Input style={styleInput}>aaa</Input>
 						
@@ -60,6 +88,9 @@ return (
 						<Label  style={styleLabel}>Início da Lavagem</Label>
 						<Input>aaa</Input>
 
+					</FormGroup>
+				</Col>
+			</Row>		
 						<Label>Local Referência de Nível</Label>
 						<Input>aaa</Input>
 
@@ -82,9 +113,7 @@ return (
 						<Label>Profundidade da camada 1</Label>
 						<Input>aaa</Input>
 
-					</FormGroup>
-				</Col>
-			</Row>
+					
 		</Form>		
 	</>
 	</div>
