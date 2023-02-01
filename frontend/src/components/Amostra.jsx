@@ -11,7 +11,7 @@ import { TreeSelect, Tooltip, Upload, Alert, Button, Select, Table, Tag, DatePic
 
 
 const styleLabel = { fontWeight: "bold",  display: 'contents' , backgroundColor: 'blue'}
-const styleInput = { margin: '20px 100px 20px 10px' }
+const styleInput = { backgroundColor: '' }
 const styleFormGroup = { display: 'contents' }
 
 
@@ -19,18 +19,21 @@ const styleFormGroup = { display: 'contents' }
 const Amostra = () => {
 
 return (
-	<div style={{backgroundColor: 'red', display:'flex', justifyContent:'center' ,width: '100%', flexWrap: 'wrap'}}>
-		<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
-			<Label >Número do Relatório</Label>
-			<Input style={{backgroundColor: 'black'}}>aaa</Input>	
-		</div>
-		<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
-			<Label >Número do Furo</Label>
-			<Input style={{backgroundColor: 'black'}}>aaa</Input>	
-		</div>
-		<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
-			<Label >Comprimento do revestimento</Label>
-			<Input style={{backgroundColor: 'black'}}>aaa</Input>	
+	<div style={{backgroundColor: '', display:'flex', justifyContent:'center' ,width: '100%', height:'100vh', flexWrap: 'wrap', alignItems:'center'}}>
+		<div style={{backgroundColor: 'grey', display:'flex', justifyContent:'center' ,width: '80%', height:'80%', flexWrap: 'wrap'}}>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
+				<Label >Número do Relatório</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
+				<Label >Número do Furo</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
+				<Label >Comprimento do revestimento</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+		
 		</div>
 		
 
