@@ -17,7 +17,6 @@ import { TreeSelect, Tooltip, Upload, Alert, Button, Select, Table, Tag, DatePic
 
 
 const styleLabel = { fontWeight: "600",  display: 'contents' }
-const inputObrigatorio = <i style={{color: "red", fontWight: "Bold"}}> *</i>
 
 const Amostra = () => {
 return (

@@ -1,55 +1,73 @@
-import React from 'react';
-import {render} from 'react-dom';
+import React, { useEffect, useState } from "react";
+import DeckGL, { MapController } from "deck.gl";
+import { renderLayers } from "./RenderLayers";
 
-import DeckGL from '@deck.gl/react';
-import {MapView} from '@deck.gl/core';
-import {TileLayer} from '@deck.gl/geo-layers';
-import {BitmapLayer, PathLayer} from '@deck.gl/layers';
-
-const INITIAL_VIEW_STATE = {
-	latitude: 47.65,
-	longitude: 7,
-	zoom: 4.5,
-	maxZoom: 20,
-	maxPitch: 89,
-	bearing: 0
-  };
-  
-  const COPYRIGHT_LICENSE_STYLE = {
-	position: 'absolute',
-	right: 0,
-	bottom: 0,
-	backgroundColor: 'hsla(0,0%,100%,.5)',
-	padding: '0 5px',
-	font: '12px/20px Helvetica Neue,Arial,Helvetica,sans-serif'
-  };
-  
-  const LINK_STYLE = {
-	textDecoration: 'none',
-	color: 'rgba(0,0,0,.75)',
-	cursor: 'grab'
-  };
-
-/* global window */
-const devicePixelRatio = (typeof window !== 'undefined' && window.devicePixelRatio) || 1;
-
-function getTooltip({tile}) {
-  if (tile) {
-    const {x, y, z} = tile.index;
-    return `tile: x: ${x}, y: ${y}, z: ${z}`;
-  }
-  return null;
-}
+import { csv } from "d3-fetch";
+const DATA_URL = "./heatmap-data.csv";
 
 const Mapa = () => {
-return (
-	<section>
-	<div>
-	<h1>Mapa.</h1>
-	</div>
-	</section>
-);
+  const [data, setData] = useState({});
 
+  //loadfdata
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await csv(DATA_URL);
+      const points = result.map(function (d) {
+        return { position: [+d.lng, +d.lat] };
+      });
+      setData(points);
+    };
+
+    fetchData();
+  }, []);
+
+  const [viewport, setViewport] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+    longitude: -3.2943888952729092,
+    latitude: 53.63605986631115,
+    zoom: 6,
+    maxZoom: 16,
+    pitch: 65,
+    bearing: 0
+  });
+
+  //resize
+  useEffect(() => {
+    const handleResize = () => {
+      setViewport((v) => {
+        return {
+          ...v,
+          width: window.innerWidth,
+          height: window.innerHeight
+        };
+      });
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return (
+    <div className="Mapa">
+      <DeckGL
+        layers={renderLayers({
+          data: data
+        })}
+        controller={{ type: MapController, dragRotate: false }}
+        initialViewState={viewport}
+      />
+      <div className="attribution">
+        <a
+          href="http://www.openstreetmap.org/about/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          © OpenStreetMap
+        </a>
+      </div>
+    </div>
+  );
 };
 
 export default Mapa;
