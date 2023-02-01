@@ -20,19 +20,111 @@ const Amostra = () => {
 
 return (
 	<div style={{backgroundColor: '', display:'flex', justifyContent:'center' ,width: '100%', height:'100vh', flexWrap: 'wrap', alignItems:'center'}}>
-		<div style={{backgroundColor: 'grey', display:'flex', justifyContent:'center' ,width: '80%', height:'80%', flexWrap: 'wrap'}}>
-			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
+		<div style={{backgroundColor: '#eeeeee', display:'flex', justifyContent:'center' ,width: '80%', height:'80%', flexWrap: 'wrap', borderRadius:'20px', opacity : '0.92'}}>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
 				<Label >Número do Relatório</Label>
 				<Input style={styleInput}>aaa</Input>	
 			</div>
-			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
 				<Label >Número do Furo</Label>
 				<Input style={styleInput}>aaa</Input>	
 			</div>
-			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px'}}>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
 				<Label >Comprimento do revestimento</Label>
 				<Input style={styleInput}>aaa</Input>	
 			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Limite de Sondagem</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Profundidade do Fechamento</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Data da Sondagem</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Bairro</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Coordenada X</Label>
+				<Input style={styleInput}>aaa</Input>	
+				<Label >Coordenada Y</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Profundidade da Camada 1</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Tipo de solo Camada 1</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Complemento Camada 1</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Início da Lavagem</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Profundidade da Camada 2</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Tipo de solo Camada 2</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Complemento Camada 2</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Local Referência de Nível</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Profundidade da Camada 3</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Tipo de solo Camada 3</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Complemento Camada 3</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Cota da Referência de Nível</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Profundidade da Camada 4</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Tipo de solo Camada 4</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Complemento Camada 4</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+			<div style={{backgroundColor: '',  display:'flex', flexDirection: 'column', alignItems: 'start', width: '20%', margin:'0 10px', justifyContent:'center'}}>
+				<Label >Cota da Boca do Furo</Label>
+				<Input style={styleInput}>aaa</Input>	
+			</div>
+
+			
 		
 		</div>
 		
@@ -42,86 +134,6 @@ return (
 	</div>
 )
 
-return (
-	
-	<div>
-		<>
-		<Form style={{  backgroundColor: 'blue',
-                            width: '100%',
-                            height: '100%',
-                            display: 'flex',
-                            flexDirection: 'column',                                                        
-                            padding: '10px',
-							paddingTop: '40px',
-							borderRadius: '15px',
-							justifyContent: 'center' }}>
-			<Row>
-				<Col style={{ display: 'flex', backgroundColor: 'red', width:'35%'}}>
-					<FormGroup style={{ display: 'flex'}}>						
-						<Label style={styleLabel}>Número do Relatório</Label>
-						<Input style={styleInput}>aaa</Input>	
-
-						<Label style={styleLabel}>Número do Furo</Label>
-						<Input style={styleInput}>aaa</Input>
-					</FormGroup>
-				</Col>	
-
-				<Col style={{ display: 'flex', backgroundColor: 'red', width:'35%'}}>
-					<FormGroup>
-						
-						
-						<Label  style={styleLabel}>Comprimento do revestimento</Label>
-						<Input style={styleInput}>aaa</Input>
-					</FormGroup>						
-				</Col>
-			</Row>	
-
-			<Row>
-				<Col>
-					<FormGroup>
-				
-						<Label  style={styleLabel}>Limite de Sondagem</Label>
-						<Input style={styleInput}>aaa</Input>
-						
-						<Label  style={styleLabel}>Data da Sondagem</Label>
-						<Input style={styleInput}>aaa</Input>
-						<Label  style={styleLabel}>Profundidade do Fechamento</Label>
-						<Input>aaa</Input>
-
-						<Label  style={styleLabel}>Início da Lavagem</Label>
-						<Input>aaa</Input>
-
-					</FormGroup>
-				</Col>
-			</Row>		
-						<Label>Local Referência de Nível</Label>
-						<Input>aaa</Input>
-
-						<Label>Cota da boca do furo</Label>
-						<Input>aaa</Input>
-
-						<Label>Desnível em relação ao RN</Label>
-						<Input>aaa</Input>
-
-						<Label>Profundidade nível d'água</Label>
-						<Input>aaa</Input>
-
-						<Label>Data de medição NA1</Label>
-						<Input>aaa</Input>
-
-						<Label>Coordenadas Planas</Label>
-						<Input>aaa</Input>
-						<Input>aaa</Input>
-
-						<Label>Profundidade da camada 1</Label>
-						<Input>aaa</Input>
-
-					
-		</Form>		
-	</>
-	</div>
-	
-);
 };
 
 export default Amostra;
