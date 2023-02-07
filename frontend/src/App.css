@@ -9,3 +9,11 @@ body {
   background-image: url("../public/fundo.png");
   background-position: right center;
 }
+
+@font-face {
+  font-family: 'tisa_sans_probold';
+  src: url('tisa_sans_pro_bold-webfont.woff2') format('woff2'),
+       url('tisa_sans_pro_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
