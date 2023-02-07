@@ -9,3 +9,9 @@ yarn run dev
 ```
 
 ## backend
+```
+npm install
+```
+```
+node api.js
+```

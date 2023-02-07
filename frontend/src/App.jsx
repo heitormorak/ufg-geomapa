@@ -8,6 +8,7 @@ import Amostra from "./components/Amostra"
 
 function App() {
   return (
+    <>
     <Router>
       <Navbar />
       <Routes>
@@ -16,6 +17,7 @@ function App() {
         <Route path='/Amostra' element={<Amostra/>} />  
       </Routes>
     </Router>
+    </>
   );
 }
   
