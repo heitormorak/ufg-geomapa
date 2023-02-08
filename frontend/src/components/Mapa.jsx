@@ -101,7 +101,10 @@ export default function App({
   };
 
   return (
+    <div style={{backgroundColor: '', display:'flex', justifyContent:'center' ,width: '100%', height:'100vh', flexWrap: 'wrap', alignItems:'center'}}>
+      <div style={{backgroundColor: 'white', display:'flex', justifyContent:'center' ,width: '80%', height:'80%', flexWrap: 'wrap', borderRadius:'20px', padding: '20px'}}>
     <DeckGL
+      style={{backgroundColor: '', position: 'relative', display:'flex', justifyContent:'center' ,width: '100%', height:'100%', flexWrap: 'wrap', borderRadius:'20px', opacity : '0.98'}}
       controller={true}
       viewState={viewState}
       layers={layers}
@@ -111,6 +114,12 @@ export default function App({
     >
       <StaticMap reuseMaps mapStyle={mapStyle} preventStyleDiffing={true} />
     </DeckGL>
+
+      </div>
+
+
+
+    </div>
   );
 }
 
