@@ -55,6 +55,7 @@ return (
 					Cadastro de amostras
 				</Label>
 			</div>
+			
 			<Search></Search>
 
 			<div style={{backgroundColor: '', display:'flex', width: '100%', height:'60%'}}>
@@ -100,11 +101,14 @@ return (
 						></Input>	
 					</div>
 				</div>
-							
+					
 			
 			</div>
 
-			
+
+			<div style={{backgroundColor: 'black', display:'flex', width: '100%', height:'20%', alignItems:'center', justifyContent:'center'}}>
+				<button onClick={() => Salvar()}>Salvar</button>                                
+			</div>   	
 		
 		</div>
 		
