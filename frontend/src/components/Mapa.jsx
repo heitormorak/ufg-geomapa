@@ -1,13 +1,14 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {render} from 'react-dom';
 import {StaticMap} from 'react-map-gl';
 import DeckGL from '@deck.gl/react';
 import {LinearInterpolator} from '@deck.gl/core';
-import {CartoLayer, setDefaultCredentials, API_VERSIONS, MAP_TYPES} from '@deck.gl/carto';
+import { setDefaultCredentials, API_VERSIONS} from '@deck.gl/carto';
+import {GeoJsonLayer} from '@deck.gl/layers'; 
 
 const INITIAL_VIEW_STATE = {
-  latitude: 40.7368521,
-  longitude: -73.9936065,
+  latitude: -16.690329,
+  longitude: -49.253840,
   zoom: 11,
   pitch: 60,
   bearing: 0
@@ -15,8 +16,8 @@ const INITIAL_VIEW_STATE = {
 
 // Colors for the breaks of the polygon layer
 const POLYGON_COLORS = {
-  COLOR_1: [225, 83, 131],
-  COLOR_2: [241, 109, 122],
+  COLOR_1: [255, 0, 127],
+  COLOR_2: [255, 178, 102],
   COLOR_3: [250, 138, 118],
   COLOR_4: [255, 166, 121],
   COLOR_5: [255, 194, 133],
@@ -38,7 +39,9 @@ export default function App({
   week = ['2020-01-01', '2020-01-05'],
   mapStyle = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
 }) {
-  const [viewState, updateViewState] = useState(INITIAL_VIEW_STATE);
+
+  const [viewState, updateViewState] = useState(INITIAL_VIEW_STATE); 
+  const [polygonData, setPolygonData] = useState(null); // initialize as null
 
   const rotateCamera = useCallback(() => {
     updateViewState(v => ({
@@ -49,55 +52,69 @@ export default function App({
       onTransitionEnd: rotateCamera
     }));
   }, []);
+ 
+  const server = 'http://localhost:8080'
 
-  const SQL = `SELECT the_geom_webmercator, avg(${mrliIndex}) as index
-            FROM mrli_ny_jan WHERE industry ='${industry}' AND timeinstant BETWEEN '${week[0]}' AND '${week[1]}'
-            GROUP BY the_geom_webmercator`;
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(`${server}/getamostras`);
 
-  const layers = [
-    new CartoLayer({
-      id: 'carto-layer',
-      type: MAP_TYPES.QUERY,
-      data: SQL,
-      getFillColor: object => {
-        if (object.properties.index > 1000) {
-          return POLYGON_COLORS.COLOR_1;
-        } else if (object.properties.index > 500) {
-          return POLYGON_COLORS.COLOR_2;
-        } else if (object.properties.index > 300) {
-          return POLYGON_COLORS.COLOR_3;
-        } else if (object.properties.index > 100) {
-          return POLYGON_COLORS.COLOR_4;
-        } else if (object.properties.index > 50) {
-          return POLYGON_COLORS.COLOR_5;
-        } else if (object.properties.index > 25) {
-          return POLYGON_COLORS.COLOR_6;
-        }
-        return POLYGON_COLORS.OTHER;
-      },
-      getLineColor: [0, 0, 0, 0],
-      lineWidthMinPixels: 0,
-      pickable: true,
-      filled: true,
-      extruded: true,
-      wireframe: true,
-      getElevation: f => {
-        return f.properties.index ? f.properties.index : 0;
-      },
-      transitions: {
-        getElevation: {
-          duration: 1000,
-          enter: () => [0]
-        }
+      if (response.status >= 200 && response.status <= 300) {
+        const polygon = await response.json();
+        setPolygonData(polygon);
+      } else {
+        console.log("ERRO");
       }
-    })
-  ];
+    }
 
+    fetchData();
+  }, []);
+
+  const layers = polygonData
+    ? [
+      new GeoJsonLayer({
+        id: 'geojson-layer',
+        data: polygonData,      
+        getLineColor: [0, 0, 0, 0],
+        getFillColor: object => {
+          if (object.properties.penetravel == true) {
+            return POLYGON_COLORS.COLOR_1;
+          } else if (object.properties.penetravel == false){
+            return POLYGON_COLORS.COLOR_2;
+          } 
+        },
+        lineWidthMinPixels: 0,
+        pickable: true,
+        filled: true,
+        extruded: true,
+        wireframe: true,
+        getElevation: f => {
+          console.log("fffffffffffff", f.properties)
+          return (f.properties.penetravel==false ? f.properties.index : 0)*100;
+        },
+        transitions: {
+          getElevation: {
+            duration: 1000,
+            enter: () => [0]
+          }
+        }
+      })
+    ] : [];
+  
   const getTooltip = ({object}) => {
     if (!object) return false;
     const {index} = object.properties;
+    const {penetravel} = object.properties;
 
-    return `Index: ${index.toFixed(2)}`;
+    if (penetravel == true){
+      return `Profundidade: ${index.toFixed(2)} metros
+            Penetrável: sim`;
+    } else {
+      return `Profundidade: ${index.toFixed(2)} metros
+      Penetrável: não`;
+    }
+
+        
   };
 
   return (
@@ -111,18 +128,17 @@ export default function App({
       getTooltip={getTooltip}
       onLoad={rotateCamera}
       onViewStateChange={v => updateViewState(v.viewState)}
-    >
+    >           
       <StaticMap reuseMaps mapStyle={mapStyle} preventStyleDiffing={true} />
     </DeckGL>
 
       </div>
-
-
-
     </div>
   );
 }
 
 export function renderToDOM(container) {
   render(<App />, container);
+  
 }
+

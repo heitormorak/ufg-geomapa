@@ -6,13 +6,14 @@ import {
   NavMenu,
   NavBtn,
   NavBtnLink,
+  Logo
 } from './NavbarElements';
   
 const Navbar = () => {
   return (
     <>
-      <Nav>
-  
+      
+      <Nav style={{ display: 'flex', justifyContent: 'center' }}>
         <NavMenu>
           <NavLink to='/Home' activeStyle>
             Home
@@ -20,15 +21,18 @@ const Navbar = () => {
           <NavLink to='/Equipe' activeStyle>
             Equipe
           </NavLink>  
-          <NavLink to='/Amostra' activeStyle>
-            Amostra
+          <NavLink to='/Mapa' activeStyle>
+            Visualize
           </NavLink>         
+          <NavBtn>
+            <NavBtnLink to='/Amostra'>Cadastrar</NavBtnLink>
+          </NavBtn>
         </NavMenu>
-        <NavBtn>
-          <NavBtnLink to='/Mapa'>Entrar</NavBtnLink>
-        </NavBtn>
+        
       </Nav>
-    </>
+    
+    </> 
+  
   );
 };
   
