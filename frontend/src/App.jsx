@@ -6,6 +6,7 @@ import Mapa from "./components/Mapa"
 import Equipe from "./components/Equipe"
 import Amostra from "./components/Amostra"
 import Home from "./components/Home"
+import AreasRisco from "./components/AreasRisco"
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path='/Mapa' element={<Mapa/>} />   
+        <Route path='/Mapa' element={<Mapa/>} /> 
+        <Route path='/Risco' element={<AreasRisco/>} />  
         <Route path='/Equipe' element={<Equipe/>}/>     
         <Route path='/Amostra' element={<Amostra/>} />  
         <Route path='/Home' element={<Home/>} />  

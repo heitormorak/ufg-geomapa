@@ -22,7 +22,10 @@ const Navbar = () => {
             Equipe
           </NavLink>  
           <NavLink to='/Mapa' activeStyle>
-            Visualize
+            Visualizar Profundidade
+          </NavLink> 
+          <NavLink to='/Risco' activeStyle>
+            Visualizar Riscos
           </NavLink>         
           <NavBtn>
             <NavBtnLink to='/Amostra'>Cadastrar</NavBtnLink>
