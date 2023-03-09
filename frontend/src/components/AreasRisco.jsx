@@ -57,7 +57,7 @@ export default function App({
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`${server}/getamostras`);
+      const response = await fetch(`${server}/getriscos`);
 
       if (response.status >= 200 && response.status <= 300) {
         const polygon = await response.json();
@@ -77,9 +77,9 @@ export default function App({
         data: polygonData,      
         getLineColor: [0, 0, 0, 0],
         getFillColor: object => {
-          if (object.properties.penetravel == true) {
+          if (object.properties.grau_risco == 'Alto') {
             return POLYGON_COLORS.COLOR_1;
-          } else if (object.properties.penetravel == false){
+          } else if (object.properties.grau_risco == 'Muito Alto'){
             return POLYGON_COLORS.COLOR_2;
           } 
         },
@@ -90,7 +90,7 @@ export default function App({
         wireframe: true,
         getElevation: f => {
           console.log("fffffffffffff", f.properties)
-          return (f.properties.penetravel==false ? f.properties.index : 0)*100;
+          return f.properties.index *100;
         },
         transitions: {
           getElevation: {
@@ -104,15 +104,11 @@ export default function App({
   const getTooltip = ({object}) => {
     if (!object) return false;
     const {index} = object.properties;
-    const {penetravel} = object.properties;
+    const {grau_vulne} = object.properties;
 
-    if (penetravel == true){
-      return `Profundidade: ${index.toFixed(2)} metros
-            Penetrável: sim`;
-    } else {
-      return `Profundidade: ${index.toFixed(2)} metros
-      Penetrável: não`;
-    }
+    `Grau de risco: ${index} 
+     Grau de vulnerabilidade: ${grau_vulne}`;
+   
 
         
   };

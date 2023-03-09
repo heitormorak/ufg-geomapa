@@ -1,6 +1,6 @@
 import {Sequelize} from 'sequelize';
 
-export const conexao = new Sequelize('geotecnica', 'root', 'admin', {
+export const conexao = new Sequelize('geotecnica', 'root', 'neokoros', {
     host: 'localhost',
     dialect: 'mysql'
 })
